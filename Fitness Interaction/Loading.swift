@@ -70,11 +70,11 @@ struct Loading: View {
     }
     func startCountdown() {
         Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
-            if countdown > 0 && page == .loading{
+            if countdown > 1 && page == .loading{
                 
                 countdown -= 1
                 
-            } else if countdown < 1 {
+            } else if countdown == 1 {
                 withAnimation {
                     page = .run
                 }
