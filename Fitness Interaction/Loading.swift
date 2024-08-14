@@ -13,6 +13,8 @@ struct Loading: View {
     @State var trim = false
     @State private var countdown = 3
     @State private var showNextView = false
+    @Binding var page:pages
+    var nameSpace:Namespace.ID
     
     var body: some View {
         VStack{
@@ -21,6 +23,7 @@ struct Loading: View {
             Image(activities)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
+                .matchedGeometryEffect(id: activities, in: nameSpace)
                 .frame(height: 72)
             Spacer()
             ZStack{
@@ -37,8 +40,10 @@ struct Loading: View {
                 Text("\(countdown)")
                     .font(.system(size: 72))
                     .fontWeight(.semibold)
+                    .animation(.spring, value: countdown)
+                    .contentTransition(.numericText())
                     .frame(width:228, height: 228)
-                    .background(Color("secondary"))
+                    .background(Color("secondary bg"))
                     .clipShape(Circle())
                     .overlay {
                         Circle()
@@ -58,21 +63,28 @@ struct Loading: View {
                     trim = true
                 }
             }
+            .onDisappear{
+                countdown = 3
+                
+            }
     }
     func startCountdown() {
         Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
-            if countdown > 0 {
+            if countdown > 0 && page == .loading{
                 
                 countdown -= 1
                 
-            } else {
+            } else if countdown < 1 {
+                withAnimation {
+                    page = .run
+                }
+                
+            }
+            else {
                 timer.invalidate()
-                showNextView = true
+                
             }
         }
     }
 }
 
-#Preview {
-    Loading(activities: "crunches")
-}

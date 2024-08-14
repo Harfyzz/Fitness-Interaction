@@ -17,6 +17,9 @@ struct RunView: View {
     @State var pace = "12’50"
     @State private var elapsedTime: TimeInterval = 0
     @State private var timer: Timer?
+    @State var goBack:()->Void
+    var nameSpace:Namespace.ID
+    
     
     var body: some View {
         VStack(spacing:24){
@@ -25,7 +28,10 @@ struct RunView: View {
                     .font(.title3)
                     .fontWeight(.medium)
                 HStack{
-                    Button(action: {}, label: {
+                    Button(action: {
+                        goBack()
+                        
+                    }, label: {
                         Image(systemName: "arrow.left")
                             .padding(12)
                             .foregroundStyle(Color(.white).opacity(0.6))
@@ -40,6 +46,7 @@ struct RunView: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(height: 72)
+                .matchedGeometryEffect(id: activities, in: nameSpace)
             VStack (spacing:4){
                 Text("Workout Time")
                     .fontWeight(.medium)
@@ -110,9 +117,7 @@ struct RunView: View {
     }
 }
 
-#Preview {
-    RunView(activities: "crunches")
-}
+
 
 struct Stat: View {
     
