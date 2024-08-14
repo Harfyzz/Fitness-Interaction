@@ -1,0 +1,78 @@
+//
+//  Loading.swift
+//  Fitness Interaction
+//
+//  Created by Afeez Yunus on 14/08/2024.
+//
+
+import SwiftUI
+
+struct Loading: View {
+    
+    @State var activities:String
+    @State var trim = false
+    @State private var countdown = 3
+    @State private var showNextView = false
+    
+    var body: some View {
+        VStack{
+            Spacer()
+                .frame(height: 32)
+            Image(activities)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(height: 72)
+            Spacer()
+            ZStack{
+                Circle()
+                    .foregroundStyle(Color("Background"))
+                    .overlay {
+                        Circle()
+                            .trim(from: 0, to: trim ? 0 : 1)
+                            .stroke(lineWidth: 8)
+                            .frame(height: 280)
+                            .foregroundStyle(Color("accent"))
+                            .rotationEffect(.degrees(270))
+                    }
+                Text("\(countdown)")
+                    .font(.system(size: 72))
+                    .fontWeight(.semibold)
+                    .frame(width:228, height: 228)
+                    .background(Color("secondary"))
+                    .clipShape(Circle())
+                    .overlay {
+                        Circle()
+                            .stroke(lineWidth: 2)
+                            .foregroundStyle(Color("border"))
+                            .rotationEffect(.degrees(270))
+                    }
+            }
+            Spacer()
+            Text("Get Ready...")
+                .foregroundStyle(.white).opacity(/*@START_MENU_TOKEN@*/0.8/*@END_MENU_TOKEN@*/)
+        }.preferredColorScheme(.dark)
+            .background(Color("Background"))
+            .onAppear{
+                startCountdown()
+                withAnimation(.easeIn(duration: 3)) {
+                    trim = true
+                }
+            }
+    }
+    func startCountdown() {
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
+            if countdown > 0 {
+                
+                countdown -= 1
+                
+            } else {
+                timer.invalidate()
+                showNextView = true
+            }
+        }
+    }
+}
+
+#Preview {
+    Loading(activities: "crunches")
+}

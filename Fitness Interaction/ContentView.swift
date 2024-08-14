@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State var searchText:String = ""
-    var activities = ["crunches", "cycling", "hiking", "running", "skipping", "stretching", "swimming", "walking", "weight lifting"]
+    @State var activities = ["crunches", "cycling", "hiking", "running", "skipping", "stretching", "swimming", "walking", "weight lifting"]
     var body: some View {
         VStack (spacing:24){
             ZStack{
