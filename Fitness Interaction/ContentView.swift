@@ -9,8 +9,9 @@ import SwiftUI
 
 struct ContentView: View {
     @State var searchText:String = ""
+    var activities = ["crunches", "cycling", "hiking", "running", "skipping", "stretching", "swimming", "walking", "weight lifting"]
     var body: some View {
-        VStack (spacing:16){
+        VStack (spacing:24){
             ZStack{
                 Text("Start Workout")
                     .font(.title3)
@@ -38,15 +39,27 @@ struct ContentView: View {
                 RoundedRectangle(cornerRadius: 64)
                     .stroke(Color("object"), lineWidth: 1)
             }
-            HStack{
-                Spacer()
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-                Spacer()
-        }
-            Text("Hello, world!")
-            Spacer()
+            ScrollView {
+                VStack (spacing:4){
+                    ForEach (activities, id: \.self) { activity in
+                        HStack{
+                            Image(activity)
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(height: 32)
+                            Text(activity)
+                            Spacer()
+                        }
+                        .padding(.vertical, 16)
+                        .padding(.horizontal, 8)
+                        .foregroundStyle(Color(.white))
+                        .background(Color("secondary"))
+                        .clipShape(RoundedRectangle(cornerRadius: 8))
+                    }
+                }
+            }.clipShape(RoundedRectangle(cornerRadius: 16))
+                .scrollIndicators(.hidden)
+            
         }
         .padding()
         .background(Color("Background"))
