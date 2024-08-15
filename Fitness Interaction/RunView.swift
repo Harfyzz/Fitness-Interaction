@@ -24,7 +24,7 @@ struct RunView: View {
     var body: some View {
         VStack(spacing:24){
             ZStack{
-                Text("Outdoor Run")
+                Text(activities.capitalized)
                     .font(.title3)
                     .fontWeight(.medium)
                 HStack{
@@ -45,8 +45,8 @@ struct RunView: View {
             Image(activities)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(height: 72)
                 .matchedGeometryEffect(id: activities, in: nameSpace)
+                .frame(height: 72)
             VStack (spacing:4){
                 Text("Workout Time")
                     .fontWeight(.medium)

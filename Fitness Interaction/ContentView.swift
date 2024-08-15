@@ -56,9 +56,10 @@ struct ContentView: View {
                                 Image(activity)
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
-                                    .frame(height: 32)
                                     .matchedGeometryEffect(id: activity, in: animate)
-                                Text(activity)
+                                    .frame(height: 32)
+                                Text(activity.capitalized)
+                                    .textInputAutocapitalization(.words)
                                 Spacer()
                             }
                             .padding(.vertical, 16)
@@ -88,7 +89,10 @@ struct ContentView: View {
             Loading(activities: selectedSport, page: $page, nameSpace: animate)
         } else if page == .run {
             RunView(activities: selectedSport, goBack: {
-                page = .list
+                withAnimation {
+                    page = .list
+                }
+                
             }, nameSpace: animate)
         }
     }
