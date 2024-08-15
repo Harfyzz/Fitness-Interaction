@@ -13,6 +13,8 @@
 		34A54F2B2C6C8CDF00A089DD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34A54F2A2C6C8CDF00A089DD /* Preview Assets.xcassets */; };
 		34A54F322C6CABF600A089DD /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A54F312C6CABF600A089DD /* Loading.swift */; };
 		34A54F342C6CC1B000A089DD /* RunView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A54F332C6CC1B000A089DD /* RunView.swift */; };
+		34A54F372C6E206200A089DD /* RiveRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = 34A54F362C6E206200A089DD /* RiveRuntime */; };
+		34A54F3B2C6E29CC00A089DD /* fitness.riv in Resources */ = {isa = PBXBuildFile; fileRef = 34A54F3A2C6E29CC00A089DD /* fitness.riv */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +25,7 @@
 		34A54F2A2C6C8CDF00A089DD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		34A54F312C6CABF600A089DD /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
 		34A54F332C6CC1B000A089DD /* RunView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunView.swift; sourceTree = "<group>"; };
+		34A54F3A2C6E29CC00A089DD /* fitness.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = fitness.riv; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -30,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34A54F372C6E206200A089DD /* RiveRuntime in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,6 +64,7 @@
 				34A54F312C6CABF600A089DD /* Loading.swift */,
 				34A54F332C6CC1B000A089DD /* RunView.swift */,
 				34A54F272C6C8CDF00A089DD /* Assets.xcassets */,
+				34A54F3A2C6E29CC00A089DD /* fitness.riv */,
 				34A54F292C6C8CDF00A089DD /* Preview Content */,
 			);
 			path = "Fitness Interaction";
@@ -89,6 +94,9 @@
 			dependencies = (
 			);
 			name = "Fitness Interaction";
+			packageProductDependencies = (
+				34A54F362C6E206200A089DD /* RiveRuntime */,
+			);
 			productName = "Fitness Interaction";
 			productReference = 34A54F202C6C8CDE00A089DD /* Fitness Interaction.app */;
 			productType = "com.apple.product-type.application";
@@ -117,6 +125,9 @@
 				Base,
 			);
 			mainGroup = 34A54F172C6C8CDE00A089DD;
+			packageReferences = (
+				34A54F352C6E206200A089DD /* XCRemoteSwiftPackageReference "rive-ios" */,
+			);
 			productRefGroup = 34A54F212C6C8CDE00A089DD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -132,6 +143,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				34A54F2B2C6C8CDF00A089DD /* Preview Assets.xcassets in Resources */,
+				34A54F3B2C6E29CC00A089DD /* fitness.riv in Resources */,
 				34A54F282C6C8CDF00A089DD /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -352,6 +364,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		34A54F352C6E206200A089DD /* XCRemoteSwiftPackageReference "rive-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/rive-app/rive-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		34A54F362C6E206200A089DD /* RiveRuntime */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 34A54F352C6E206200A089DD /* XCRemoteSwiftPackageReference "rive-ios" */;
+			productName = RiveRuntime;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 34A54F182C6C8CDE00A089DD /* Project object */;
 }

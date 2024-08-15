@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import RiveRuntime
 
 struct Loading: View {
     
@@ -15,16 +16,18 @@ struct Loading: View {
     @State private var showNextView = false
     @Binding var page:pages
     var nameSpace:Namespace.ID
+    @State var warmup = RiveViewModel(fileName: "fitness", fit: .contain, artboardName: "Walking")
     
     var body: some View {
         VStack{
             Spacer()
                 .frame(height: 32)
-            Image(activities)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
+            warmup.view()
                 .matchedGeometryEffect(id: activities, in: nameSpace)
-                .frame(height: 72)
+                .frame(height: 100)
+                .onAppear{
+                    warmup.triggerInput("warming up")
+                }
             Spacer()
             ZStack{
                 Circle()

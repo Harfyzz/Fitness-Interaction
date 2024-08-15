@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import RiveRuntime
 
 struct RunView: View {
     @State var activities:String
@@ -19,6 +20,9 @@ struct RunView: View {
     @State private var timer: Timer?
     @State var goBack:()->Void
     var nameSpace:Namespace.ID
+    @State var riveAnimation = RiveViewModel(fileName: "fitness",fit: .contain, artboardName: "Walking")
+    @State var isTimerPaused = false
+    
     
     
     var body: some View {
@@ -42,11 +46,19 @@ struct RunView: View {
                     
                 }
             }
-            Image(activities)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
+            riveAnimation.view()
                 .matchedGeometryEffect(id: activities, in: nameSpace)
                 .frame(height: 72)
+                .onAppear{
+                    riveAnimation.triggerInput(activities)
+                }
+                .onChange(of: isTimerPaused) { oldValue, newValue in
+                    if isTimerPaused {
+                        riveAnimation.triggerInput("warming up")
+                    } else {
+                        riveAnimation.triggerInput(activities)
+                    }
+                }
             VStack (spacing:4){
                 Text("Workout Time")
                     .fontWeight(.medium)
@@ -74,8 +86,18 @@ struct RunView: View {
                 Spacer()
             }
             Spacer()
-            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                Image(systemName: "pause.fill")
+            Button(action: {
+                isTimerPaused.toggle()
+                if isTimerPaused {
+                    // Pause the timer
+                    timer?.invalidate()
+                    timer = nil
+                } else {
+                    // Resume the timer
+                    startTimer()
+                }
+            }, label: {
+                Image(systemName:isTimerPaused ? "play.fill" : "pause.fill")
                     .padding(32)
                     .background(.white)
                     .foregroundStyle(Color("Background"))

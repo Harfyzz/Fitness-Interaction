@@ -19,6 +19,8 @@ struct ContentView: View {
     @State var page:pages = .list
     @State var selectedSport = ""
     @Namespace var animate
+    @Namespace var playButton
+    
     var body: some View {
         if page == .list {
             VStack (spacing:24){
