@@ -11,7 +11,7 @@ import SwiftUI
 struct Fitness_InteractionApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ActivityScroll()
         }
     }
 }

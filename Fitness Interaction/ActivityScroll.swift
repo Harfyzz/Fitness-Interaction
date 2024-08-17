@@ -11,7 +11,7 @@ import RiveRuntime
 struct ActivityScroll: View {
     @State var fitnessImagery = RiveViewModel(fileName: "fitness",fit: .contain, artboardName: "Walking")
     @State var selectedItem = "warming up"
-    let content = ContentView()
+    @State var activities = ["warm up","crunches", "cycling", "hiking", "outdoor run", "skipping", "indoor walk", "swimming", "outdoor walk", "weight-lifting"]
     
     var body: some View {
         VStack{
@@ -41,12 +41,12 @@ struct ActivityScroll: View {
                 }
             VStack(spacing:16){
             Text(selectedItem.capitalized)
-                .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                .font(.title2)
+                .fontWeight(.semibold)
                 .contentTransition(.numericText())
                 .animation(.easeInOut, value: selectedItem)
             Picker("", selection: $selectedItem) {
-                ForEach (content.activities, id: \.self) { activity in
+                ForEach (activities, id: \.self) { activity in
                     Text(activity.capitalized)
                 }
                 .onChange(of: selectedItem) { oldValue, newValue in
@@ -57,12 +57,10 @@ struct ActivityScroll: View {
                     .clipShape(RoundedRectangle(cornerRadius: 16))
         }
             Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                HStack{Spacer()
                     Text("Continue")
                         .padding()
                         .fontWeight(.medium)
-                    Spacer()
-                }.foregroundStyle(Color("Background"))
+                        .foregroundStyle(Color("Background"))
                 .background(.white)
                 .clipShape(RoundedRectangle(cornerRadius: 64))
             })
