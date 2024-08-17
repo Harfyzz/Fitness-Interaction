@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import RiveRuntime
 
 enum pages {
     case list
@@ -15,11 +16,12 @@ enum pages {
 
 struct ContentView: View {
     @State var searchText:String = ""
-    @State var activities = ["crunches", "cycling", "hiking", "running", "skipping", "stretching", "swimming", "walking", "weight lifting"]
+    @State var activities = ["warm up","crunches", "cycling", "hiking", "outdoor run", "skipping", "indoor walk", "swimming", "outdoor walk", "weight-lifting"]
     @State var page:pages = .list
     @State var selectedSport = ""
     @Namespace var animate
     @Namespace var playButton
+    @State var fitnessIcon = RiveViewModel(fileName: "fitness", fit: .contain, artboardName: "Walking")
     
     var body: some View {
         if page == .list {
@@ -58,8 +60,8 @@ struct ContentView: View {
                                 Image(activity)
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
+                                    .frame(width:32, height: 32)
                                     .matchedGeometryEffect(id: activity, in: animate)
-                                    .frame(height: 32)
                                 Text(activity.capitalized)
                                     .textInputAutocapitalization(.words)
                                 Spacer()

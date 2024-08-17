@@ -47,8 +47,8 @@ struct RunView: View {
                 }
             }
             riveAnimation.view()
+                .frame(height: 100)
                 .matchedGeometryEffect(id: activities, in: nameSpace)
-                .frame(height: 72)
                 .onAppear{
                     riveAnimation.triggerInput(activities)
                 }

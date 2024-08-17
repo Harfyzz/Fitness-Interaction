@@ -14,7 +14,8 @@
 		34A54F322C6CABF600A089DD /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A54F312C6CABF600A089DD /* Loading.swift */; };
 		34A54F342C6CC1B000A089DD /* RunView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A54F332C6CC1B000A089DD /* RunView.swift */; };
 		34A54F372C6E206200A089DD /* RiveRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = 34A54F362C6E206200A089DD /* RiveRuntime */; };
-		34A54F3B2C6E29CC00A089DD /* fitness.riv in Resources */ = {isa = PBXBuildFile; fileRef = 34A54F3A2C6E29CC00A089DD /* fitness.riv */; };
+		34A54F412C70A24600A089DD /* ActivityScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A54F402C70A24600A089DD /* ActivityScroll.swift */; };
+		34A54F472C70B5F700A089DD /* fitness.riv in Resources */ = {isa = PBXBuildFile; fileRef = 34A54F462C70B5F700A089DD /* fitness.riv */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +26,8 @@
 		34A54F2A2C6C8CDF00A089DD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		34A54F312C6CABF600A089DD /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
 		34A54F332C6CC1B000A089DD /* RunView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunView.swift; sourceTree = "<group>"; };
-		34A54F3A2C6E29CC00A089DD /* fitness.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = fitness.riv; sourceTree = "<group>"; };
+		34A54F402C70A24600A089DD /* ActivityScroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityScroll.swift; sourceTree = "<group>"; };
+		34A54F462C70B5F700A089DD /* fitness.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = fitness.riv; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,8 +65,9 @@
 				34A54F252C6C8CDE00A089DD /* ContentView.swift */,
 				34A54F312C6CABF600A089DD /* Loading.swift */,
 				34A54F332C6CC1B000A089DD /* RunView.swift */,
+				34A54F402C70A24600A089DD /* ActivityScroll.swift */,
 				34A54F272C6C8CDF00A089DD /* Assets.xcassets */,
-				34A54F3A2C6E29CC00A089DD /* fitness.riv */,
+				34A54F462C70B5F700A089DD /* fitness.riv */,
 				34A54F292C6C8CDF00A089DD /* Preview Content */,
 			);
 			path = "Fitness Interaction";
@@ -143,7 +146,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				34A54F2B2C6C8CDF00A089DD /* Preview Assets.xcassets in Resources */,
-				34A54F3B2C6E29CC00A089DD /* fitness.riv in Resources */,
+				34A54F472C70B5F700A089DD /* fitness.riv in Resources */,
 				34A54F282C6C8CDF00A089DD /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -158,6 +161,7 @@
 				34A54F342C6CC1B000A089DD /* RunView.swift in Sources */,
 				34A54F262C6C8CDE00A089DD /* ContentView.swift in Sources */,
 				34A54F322C6CABF600A089DD /* Loading.swift in Sources */,
+				34A54F412C70A24600A089DD /* ActivityScroll.swift in Sources */,
 				34A54F242C6C8CDE00A089DD /* Fitness_InteractionApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
