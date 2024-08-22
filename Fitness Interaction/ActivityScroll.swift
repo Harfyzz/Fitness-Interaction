@@ -61,6 +61,7 @@ struct ActivityScroll: View {
                         .padding()
                         .fontWeight(.medium)
                         .foregroundStyle(Color("Background"))
+                        .frame(width: 280)
                 .background(.white)
                 .clipShape(RoundedRectangle(cornerRadius: 64))
             })
